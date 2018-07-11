@@ -1,0 +1,16 @@
+{
+  "name": "inventory-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "mysecretpassword",
+    "database.dbname" : "dvdrental",
+    "database.server.name": "demo-dvd-9",
+    "transforms": "Reroute",
+    "transforms.Reroute.type": "io.debezium.transforms.ByLogicalTableRouter",
+    "transforms.Reroute.topic.regex": "(.)*",
+    "transforms.Reroute.topic.replacement": "DVDSTORE-test-bare"
+  }
+}
