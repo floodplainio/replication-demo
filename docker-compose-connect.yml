@@ -1,0 +1,32 @@
+version: '2'
+services:
+  postgres:
+    image: debezium/postgres:10.0
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+  mongo:
+    image: mongo:latest
+    container_name: "mongo"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+    volumes:
+      - ./mongodata:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles # --quiet
+  connect:
+    image: debezium/connect:0.7
+    environment:
+      BOOTSTRAP_SERVERS: 10.0.0.7:9092,10.0.0.7:9093,10.0.0.7:9094
+      CONFIG_STORAGE_TOPIC: topic-config-jc
+      OFFSET_STORAGE_TOPIC: offset-storage-jc
+    ports:
+      - "8083:8083"
+#  elasticsearch:
+#    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.4
+#    environment:
+#      discovery.type: single-node
+#    ports:
+#      - "9200:9200"
