@@ -17,7 +17,7 @@ services:
       - 27017:27017
     command: mongod --smallfiles # --quiet
   connect:
-    image: debezium/connect:0.7
+    image: debezium/connect:0.8
     environment:
       BOOTSTRAP_SERVERS: 10.0.0.7:9092,10.0.0.7:9093,10.0.0.7:9094
       CONFIG_STORAGE_TOPIC: topic-config-jc
