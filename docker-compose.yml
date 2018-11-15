@@ -32,25 +32,23 @@ services:
     ports:
       - 27017:27017
     command: mongod --smallfiles # --quiet
-#  connect:
-#    image: debezium/connect:0.8
-#    environment:
-#      BOOTSTRAP_SERVERS: kafka:9092
-#      CONFIG_STORAGE_TOPIC: topic-config
-#      OFFSET_STORAGE_TOPIC: offset-storage
-#    ports:
-#      - "8083:8083"
-#    depends_on:
-#      - postgres
-#      - kafka
 #  elasticsearch:
-#    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.3.1
+#    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.4.2
 #    environment:
 #      discovery.type: single-node
-##    ports:
+#    ports:
 #      - "9200:9200"
 #      - "9300:9300"
 #  neo4j:
-#    image: neo4j:3.0
+#    image: neo4j:3.4.9
 #    ports:
 #     - "7474:7474"
+#     - "7687:7687"
+  kafkamanager:
+    image: dexels/kafka-manager:0.10.4
+    ports:
+     - "9000:9000"
+    environment:
+      - ZK_HOSTS=zookeeper
+      - ZOOKEEPER_IP=zookeeper
+
