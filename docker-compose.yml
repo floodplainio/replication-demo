@@ -52,3 +52,27 @@ services:
       - ZK_HOSTS=zookeeper
       - ZOOKEEPER_IP=zookeeper
 
+  stream:
+    image: dexels/navajo-bare:4.5.0
+    ports:
+      - "8080:8080"
+    environment:
+     - CLUSTER=demo
+     - INTERACTIVE=true
+     - CLUSTER_USE_DEFAULT_CLASSLOADER=true
+     - DIRECT_SINK=false
+     - ENABLE_TENANTLESS=true
+     - FILE_REPOSITORY_DEPLOYMENT=test
+     - FILE_REPOSITORY_FILEINSTALL=etc
+     - FILE_REPOSITORY_MONITORED=streams
+     - GIT_REPOSITORY_TYPE=any
+     - KAFKA_STREAMS_THREADCOUNT=1
+     - TOPIC_REPLICATION_COUNT=1
+     - FILTER_INSTANCES=clubinstances,simple,address
+     - GENERATION=2
+     - HAZELCAST_SIMPLE=true
+     - INSTANCENAME=instance-1
+     - KAFKA_STREAMS_DISABLECACHE=true
+     - PRETTY_JSON=true
+     - REPLICATION_MESSAGE_FORMAT=JSON
+     - TENANT_MASTER=MOCKUP
