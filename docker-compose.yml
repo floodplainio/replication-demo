@@ -55,7 +55,7 @@ services:
   stream:
     image: dexels/navajo-bare:4.5.0
     ports:
-      - "8080:8080"
+      - "8181:8181"
     environment:
      - CLUSTER=demo
      - CLUSTER_USE_DEFAULT_CLASSLOADER=true
