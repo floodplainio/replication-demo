@@ -8,6 +8,8 @@ You can check the kafka status:
 
 http://cluster:9000
 
+Let's have a look at our source database, create the database
+
 
 
 

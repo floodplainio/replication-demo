@@ -16,7 +16,7 @@ services:
       - "9092:9092"
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
-      KAFKA_CREATE_TOPICS: "develop-postgres-club:1:1,topic-config:10:1,offset-storage:10:1,MOCKUP-test-bare:1:1"
+      KAFKA_CREATE_TOPICS: "topic-config:10:1,offset-storage:10:1,MOCKUP-test-bare:1:1"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
