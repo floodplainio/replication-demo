@@ -1,3 +1,4 @@
 /data
 /mongodata
 /old
+.DS_Store
