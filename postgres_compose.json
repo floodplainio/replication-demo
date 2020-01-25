@@ -11,6 +11,6 @@
     "transforms": "Reroute",
     "transforms.Reroute.type": "io.debezium.transforms.ByLogicalTableRouter",
     "transforms.Reroute.topic.regex": "(.)*",
-    "transforms.Reroute.topic.replacement": "MOCKUP-test-bare"
+    "transforms.Reroute.topic.replacement": "DEFAULT-test-bare"
   }
 }
